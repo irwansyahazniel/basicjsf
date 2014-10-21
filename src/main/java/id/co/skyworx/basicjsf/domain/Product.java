@@ -33,8 +33,13 @@ public class Product implements Serializable {
 	@Column(name = "description", nullable = false)
 	private String description;
 	
-	@ManyToOne(fetch = FetchType.LAZY) // jika tidak didefinisikan fetch type-nya
-	@JoinColumn(name = "category_id") // default Eager
+//	@ManyToOne(fetch = FetchType.LAZY) // jika tidak didefinisikan fetch type-nya
+//	@JoinColumn(name = "category_id") // default Eager
+//	private Category category;
+	
+	// ubah menjadi eager
+	@ManyToOne
+	@JoinColumn(name = "category_id")
 	private Category category;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

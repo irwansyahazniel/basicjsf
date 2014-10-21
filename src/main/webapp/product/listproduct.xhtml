@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head>
+<h:outputStylesheet>
+.list-table{   
+    border-collapse:collapse;
+    border:1px solid;
+}
+
+.list-table-header{
+    text-align:center;
+    background:none repeat scroll 0 0 #E5E5E5 ;
+    border-bottom:1px solid #BBBBBB ;
+    padding:16px;
+}
+.list-table-odd{
+    text-align:center;
+    background:none repeat scroll 0 0 #FFFFFFF;
+    border-top:1px solid #BBBBBB ;
+}
+
+.list-table-even{
+    text-align:center;
+    background:none repeat scroll 0 0 #F9F9F9 ;
+    border-top:1px solid #BBBBBB ;
+.list-column{
+}
+}
+</h:outputStylesheet>
+</h:head>
+<body>
+	<h:dataTable var="pro" value="#{productListController.products}"
+		styleClass="list-table" headerClass="list-table-header"
+		rowClasses="list-table-odd,list-table-even">
+		<h:column>
+			<f:facet name="header">Product ID</f:facet>
+			<h:outputText value="#{pro.id}" />
+		</h:column>
+		<!-- <h:column>
+			<f:facet name="header">Category ID</f:facet>
+			<h:outputText value="#{pro.category.id}" />
+		</h:column> -->
+		<h:column>
+			<f:facet name="header">Name</f:facet>
+			<h:outputText value="#{pro.name}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Description</f:facet>
+			<h:outputText value="#{pro.description}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Category</f:facet>
+			<h:outputText value="#{pro.category.name}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Price</f:facet>
+			<h:outputText value="#{pro.price}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Stok</f:facet>
+			<h:outputText value="#{pro.stock}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Action</f:facet>
+			<h:link value="Edit" outcome="form">  
+				<f:param name="id" value="#{pro.id}"></f:param>
+			</h:link>
+		</h:column>
+	</h:dataTable>
+	<h:link value="New Product" outcome="/product/form" />
+</body>
+</html>

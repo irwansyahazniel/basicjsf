@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<body>
+	<h3>
+		New Product
+		<h:form>
+			<!-- untuk convert nilai ke Long, karena default nilai
+			yang diberikan karena   -->
+			<h:inputHidden value="#{productController.productId}"
+				converter="javax.faces.Long" />
+			<h:inputHidden value="#{productController.categoryId}"
+				converter="javax.faces.Long" />
+			<table border="1">
+				<tr>
+					<td>Category :</td>
+					<td><h:selectOneMenu value="#{productController.categoryName}">
+							<f:selectItem itemValue="Sepatu" itemLabel="Sepatu" />
+							<f:selectItem itemValue="Buku Pendidikan" itemLabel="Buku Pendidikan" />
+							<f:selectItem itemValue="Elektronik" itemLabel="Elektronik" />
+							<f:selectItem itemValue="Buku Cerita" itemLabel="Buku Cerita" />
+							<f:selectItem itemValue="Rak Buku" itemLabel="Rak Buku" />
+							<f:selectItem itemValue="Smartphone" itemLabel="Smartphone" />
+							<f:selectItem itemValue="Notebook" itemLabel="Notebook" />
+							<f:selectItem itemValue="Smart Watch" itemLabel="Smart Watch" />
+						</h:selectOneMenu></td>
+				</tr>
+				<tr>
+					<td>Name :</td>
+					<td><h:inputText value="#{productController.productName}"></h:inputText></td>
+				</tr>
+				<tr>
+					<td>Description :</td>
+					<td><h:inputText value="#{productController.description}"></h:inputText></td>
+				</tr>
+				<tr>
+					<td>Price :</td>
+					<td><h:inputText value="#{productController.price}"></h:inputText></td>
+				</tr>
+				<tr>
+					<td>Stok :</td>
+					<td><h:inputText value="#{productController.stock}"></h:inputText></td>
+				</tr>
+			</table>
+			<h:commandButton action="#{productController.save}" value="Submit" />
+		</h:form>
+	</h3>
+</body>
+</html>
