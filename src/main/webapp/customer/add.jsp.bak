@@ -1,0 +1,59 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Tambah Customer</title>
+</head>
+<body>
+	<h2>Add Customer</h2>
+	<form action="add" method="post">
+		<table>
+			<tr>
+				<td>Nama Depan :</td>
+				<td><input type="text" name="first_name" /></td>
+			</tr>
+			<tr>
+				<td>Nama Belakang :</td>
+				<td><input type="text" name="last_name" /></td>
+			</tr>
+			<tr>
+				<td>Email :</td>
+				<td><input type="text" name="email" /></td>
+			</tr>
+			<tr>
+				<td>Home Phone :</td>
+				<td><input type="text" name="home_phone" /></td>
+			</tr>
+			<tr>
+				<td>Mobile Phone :</td>
+				<td><input type="text" name="mobile_phone" /></td>
+			</tr>
+			<tr>
+				<td>Password :</td>
+				<td><input type="password" name="password" /></td>
+			</tr>
+			<tr>
+				<td>Tanggal Lahir (DD-MM-YYYY) :</td>
+				<td><input type="text" name="birth_date" /></td>
+			</tr>
+			<tr>
+				<td>Alamat :</td>
+				<td><input type="text" name="street" /></td>
+			</tr>
+			<tr>
+				<td>Kota :</td>
+				<td><input type="text" name="city" /></td>
+			</tr>
+			<tr>
+				<td>Kode Pos :</td>
+				<td><input type="text" name="postal_code" /></td>
+			</tr>
+			<td><button type="submit">Submit</button></td>
+		</table>
+		<input type="hidden" name="action" value="add" />
+	</form>
+
+</body>
+</html>

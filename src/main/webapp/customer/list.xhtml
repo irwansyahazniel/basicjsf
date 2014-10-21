@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head>
+<h:outputStylesheet>
+.list-table{   
+    border-collapse:collapse;
+    border:1px solid;
+}
+
+.list-table-header{
+    text-align:center;
+    background:none repeat scroll 0 0 #E5E5E5 ;
+    border-bottom:1px solid #BBBBBB ;
+    padding:16px;
+}
+.list-table-odd{
+    text-align:center;
+    background:none repeat scroll 0 0 #FFFFFFF;
+    border-top:1px solid #BBBBBB ;
+}
+
+.list-table-even{
+    text-align:center;
+    background:none repeat scroll 0 0 #F9F9F9 ;
+    border-top:1px solid #BBBBBB ;
+.list-column{
+}
+}
+</h:outputStylesheet>
+</h:head>
+<body>
+	<!-- var="c" => sebagai variable penampung nilai yang akan di-loop dari List -->
+	<h:dataTable var="c" value="#{customerListController.customers}"
+		styleClass="list-table" headerClass="list-table-header"
+		rowClasses="list-table-odd,list-table-even">
+		<h:column>
+			<f:facet name="header">Salutation</f:facet>
+			<h:outputText value="#{c.salutation}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Name</f:facet>
+			<h:outputText value="#{c.firstName} #{c.lastName}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Birthdate</f:facet>
+			<h:outputText value="#{c.birthDate}">
+			<f:convertDateTime pattern="dd-mm-yyyy" />
+			</h:outputText>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Gender</f:facet>
+			<h:outputText value="#{c.gender}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Email</f:facet>
+			<h:outputText value="#{c.email}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Password</f:facet>
+			<h:outputText value="#{c.password}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Home Phone</f:facet>
+			<h:outputText value="#{c.homePhone}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Mobile Phone</f:facet>
+			<h:outputText value="#{c.mobileNo}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Street</f:facet>
+			<h:outputText value="#{c.address.street}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Action</f:facet>
+			<h:link value="Edit" outcome="add">  
+				<f:param name="id" value="#{c.id}"></f:param>
+			</h:link>
+		</h:column>
+	</h:dataTable>
+	<h:link value="New Customer" outcome="/customer/add" />
+</body>
+</html>
